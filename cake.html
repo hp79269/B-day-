@@ -1,321 +1,507 @@
 <!doctype html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  <title>A Little Cake For A Special Girl 🎂</title>  <link rel="stylesheet" href="style.css">  <style>
-    /* ===== BEAUTIFUL CAKE PAGE ===== */
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    .cake-page {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 55px 15px;
-    }
+<title>A Little Cake For A Special Girl 🎂</title>
 
-    .cake-card {
-      width: min(850px, 96%);
-      text-align: center;
-      padding: 38px 20px 45px;
-      border-radius: 35px;
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 20px 60px rgba(150, 100, 170, 0.18);
-      border: 1px solid rgba(255,255,255,0.8);
-    }
+<link rel="stylesheet" href="style.css">
 
-    .cake-card h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      margin: 12px 0 5px;
-    }
+<style>
 
-    .cake-intro {
-      font-family: cursive;
-      font-size: clamp(19px, 3vw, 25px);
-      color: #8b5c91;
-      margin-bottom: 15px;
-    }
+/* ==============================
+   CAKE PAGE
+================================ */
 
-    .cake-wrap {
-      margin-top: 15px;
-    }
+.cake-page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:50px 12px;
+}
 
-    /* BIGGER CAKE */
-    .cake {
-      position: relative;
-      width: min(470px, 90vw);
-      height: 360px;
-      margin: 55px auto 20px;
-      filter: drop-shadow(0 20px 22px rgba(120,70,130,.18));
-    }
+.cake-card{
+  width:min(900px,96%);
+  text-align:center;
+  padding:35px 10px 45px;
+  border-radius:35px;
 
-    /* PHOTO FRAME */
-    .cake-photo {
-      position: absolute;
-      z-index: 8;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(15px);
 
-      width: 145px;
-      height: 145px;
+  box-shadow:0 20px 60px rgba(130,80,150,.18);
+}
 
-      left: 50%;
-      top: 35px;
-      transform: translateX(-50%);
+.cake-intro{
+  font-family:cursive;
+  font-size:clamp(20px,4vw,27px);
+  color:#8c6095;
+}
 
-      object-fit: cover;
+.cake-card h1{
+  font-size:clamp(30px,6vw,48px);
+  margin:8px 0 5px;
+}
 
-      border-radius: 50%;
-      border: 8px solid #fff;
-      outline: 5px solid #d9b5e4;
 
-      box-shadow:
-        0 8px 25px rgba(120,70,130,.25),
-        0 0 0 12px rgba(255,255,255,.45);
+/* ==============================
+   BIG REALISTIC CSS CAKE
+================================ */
 
-      background: #f5e8f7;
-    }
+.cake-wrap{
+  margin-top:30px;
+}
 
-    /* PHOTO HEART DECORATION */
-    .cake-photo::after {
-      content: "♡";
-    }
+.cake{
+  position:relative;
 
-    /* CAKE BASE */
-    .layer {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 22px 22px 15px 15px;
-    }
+  /* LARGE CAKE */
+  width:min(650px,94vw);
+  height:390px;
 
-    .layer.top {
-      width: 365px;
-      height: 95px;
-      bottom: 145px;
+  margin:55px auto 10px;
 
-      background:
-        linear-gradient(
-          to bottom,
-          #f9d8ed,
-          #eeb9dc
-        );
+  filter:drop-shadow(
+    0 22px 25px rgba(80,45,40,.22)
+  );
+}
 
-      box-shadow:
-        inset 0 -12px 0 rgba(190,120,175,.12),
-        0 12px 20px rgba(130,70,130,.15);
-    }
 
-    .layer.bottom {
-      width: 430px;
-      height: 120px;
-      bottom: 30px;
+/* ==============================
+   CAKE SIDE
+================================ */
 
-      background:
-        linear-gradient(
-          to bottom,
-          #e8b4d9,
-          #d997ca
-        );
+.cake .layer.bottom{
 
-      box-shadow:
-        inset 0 -15px 0 rgba(150,80,140,.12),
-        0 15px 25px rgba(130,70,130,.18);
-    }
+  position:absolute;
 
-    /* ICING */
-    .icing {
-      position: absolute;
-      z-index: 5;
+  width:88%;
+  height:170px;
 
-      left: 50%;
-      transform: translateX(-50%);
+  left:6%;
+  bottom:25px;
 
-      bottom: 130px;
+  border-radius:
+    0 0 48% 48% /
+    0 0 30% 30%;
 
-      width: 380px;
-      height: 42px;
+  background:
+    linear-gradient(
+      to bottom,
+      #fffdf6 0%,
+      #f9eee0 35%,
+      #ead7bf 75%,
+      #d9c0a1 100%
+    );
 
-      background: #fff7fc;
+  box-shadow:
+    inset 0 -18px 25px rgba(130,90,50,.12),
+    0 12px 18px rgba(80,50,30,.15);
+}
 
-      border-radius: 25px 25px 35px 35px;
 
-      box-shadow:
-        0 5px 8px rgba(130,70,130,.1);
-    }
+/* Cake side cream decoration */
 
-    .icing::before,
-    .icing::after {
-      content: "♡  ✦  ♡  ✦  ♡";
-      position: absolute;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: #d49bcf;
-      font-size: 18px;
-      top: 9px;
-      letter-spacing: 12px;
-    }
+.cake .layer.bottom::before{
 
-    /* CANDLES */
-    .candles {
-      position: absolute;
-      z-index: 10;
+  content:"";
 
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
+  position:absolute;
 
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-    }
+  left:0;
+  top:15px;
 
-    .candle {
-      position: relative;
+  width:100%;
+  height:35px;
 
-      width: 18px;
-      height: 78px;
+  background:
+    radial-gradient(
+      ellipse,
+      #fff 0%,
+      #fff 55%,
+      transparent 57%
+    );
 
-      border-radius: 8px;
+  background-size:45px 25px;
+}
 
-      background:
-        repeating-linear-gradient(
-          45deg,
-          #fff,
-          #fff 7px,
-          #d7a9df 7px,
-          #d7a9df 14px
-        );
 
-      box-shadow:
-        0 5px 10px rgba(100,50,110,.15);
-    }
+/* ==============================
+   CAKE TOP
+================================ */
 
-    /* FLAMES */
-    .flame {
-      position: absolute;
+.cake .layer.top{
 
-      width: 22px;
-      height: 32px;
+  position:absolute;
 
-      left: 50%;
-      top: -30px;
+  z-index:3;
 
-      transform: translateX(-50%);
+  width:88%;
+  height:225px;
 
-      background: radial-gradient(
-        ellipse at center,
-        #fff6a8 15%,
-        #ffd166 45%,
-        #ff9f68 75%
-      );
+  left:6%;
+  top:35px;
 
-      border-radius: 50% 50% 50% 50%;
+  border-radius:50%;
 
-      animation: flicker .8s infinite alternate;
+  background:
+    linear-gradient(
+      145deg,
+      #fffef9,
+      #f7e9d7
+    );
 
-      box-shadow:
-        0 0 12px #ffd166,
-        0 0 25px rgba(255,190,80,.65);
-    }
+  box-shadow:
 
-    @keyframes flicker {
-      from {
-        transform: translateX(-50%) scale(1) rotate(-3deg);
-      }
+    inset 0 8px 15px rgba(255,255,255,.9),
 
-      to {
-        transform: translateX(-50%) scale(1.12) rotate(3deg);
-      }
-    }
+    inset 0 -12px 18px rgba(170,120,80,.12),
 
-    /* CAKE DECORATIONS */
-    .cake::before {
-      content: "♡";
-      position: absolute;
-      z-index: 12;
+    0 8px 12px rgba(70,40,25,.16);
+}
 
-      left: 35px;
-      bottom: 75px;
 
-      color: #fff;
-      font-size: 45px;
-      opacity: .8;
-    }
+/* ==============================
+   PHOTO INSIDE CAKE
+================================ */
 
-    .cake::after {
-      content: "✦";
-      position: absolute;
-      z-index: 12;
+.cake-photo{
 
-      right: 35px;
-      bottom: 75px;
+  position:absolute;
 
-      color: #fff;
-      font-size: 38px;
-      opacity: .8;
-    }
+  z-index:6;
 
-    .hint {
-      color: #85638b;
-      font-size: 16px;
-      margin: 5px 0 18px;
-    }
+  width:62%;
+  height:185px;
 
-    #wishBtn {
-      border: none;
-      cursor: pointer;
-    }
+  left:19%;
+  top:55px;
 
-    /* MOBILE */
-    @media (max-width: 600px) {
+  object-fit:cover;
 
-      .cake-card {
-        padding: 30px 10px 35px;
-      }
+  /*
+     Makes photo look like it is
+     printed on the cake surface
+  */
 
-      .cake {
-        width: 100%;
-        height: 315px;
-        transform: scale(.82);
-        transform-origin: top center;
-        margin-bottom: -35px;
-      }
+  border-radius:50%;
 
-      .cake-photo {
-        width: 125px;
-        height: 125px;
-      }
+  border:8px solid #fff;
 
-      .candles {
-        gap: 16px;
-      }
+  box-shadow:
+    0 2px 5px rgba(70,40,30,.15),
+    inset 0 0 10px rgba(80,50,30,.12);
 
-      .cake-card h1 {
-        line-height: 1.15;
-      }
-    }
-  </style></head><body>  <div class="floating f1">🦋</div>
-  <div class="floating f2">♡</div>
-  <div class="floating f3">🌸</div>
-  <div class="floating f4">✨</div>  <nav>
-    <a href="index.html">♡ Home</a>
-    <a href="message.html">Message</a>
-    <a href="memories.html">Memories</a>
-    <a href="cake.html">Cake</a>
-    <a href="surprise.html">Surprise</a>
-  </nav>  <main class="cake-page"><div class="cake-card">
+  background:#f5e9dc;
+}
+
+
+/* ==============================
+   CREAM RING AROUND PHOTO
+================================ */
+
+.cake .icing{
+
+  position:absolute;
+
+  z-index:7;
+
+  width:66%;
+  height:197px;
+
+  left:17%;
+  top:49px;
+
+  border-radius:50%;
+
+  border:10px dotted #fff;
+
+  pointer-events:none;
+
+  filter:
+    drop-shadow(
+      0 2px 3px rgba(80,50,30,.12)
+    );
+}
+
+
+/* ==============================
+   EXTRA CAKE CREAM DOTS
+================================ */
+
+.cake .icing::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+
+  border:3px solid rgba(239,216,190,.7);
+}
+
+
+/* ==============================
+   CANDLES
+================================ */
+
+.candles{
+
+  position:absolute;
+
+  z-index:12;
+
+  top:-5px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  display:flex;
+
+  gap:25px;
+}
+
+.candle{
+
+  position:relative;
+
+  width:17px;
+  height:70px;
+
+  border-radius:8px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 7px,
+      #d9a6df 7px,
+      #d9a6df 14px
+    );
+
+  box-shadow:
+    0 4px 8px rgba(60,40,40,.2);
+}
+
+
+/* ==============================
+   FLAME
+================================ */
+
+.flame{
+
+  position:absolute;
+
+  width:23px;
+  height:31px;
+
+  left:50%;
+  top:-29px;
+
+  transform:translateX(-50%);
+
+  border-radius:
+    50% 50% 50% 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      #fffbd0 10%,
+      #ffd166 45%,
+      #ff9d68 75%
+    );
+
+  box-shadow:
+    0 0 10px #ffd166,
+    0 0 25px rgba(255,180,60,.7);
+
+  animation:flicker .8s infinite alternate;
+}
+
+@keyframes flicker{
+
+  from{
+    transform:
+      translateX(-50%)
+      scale(1)
+      rotate(-3deg);
+  }
+
+  to{
+    transform:
+      translateX(-50%)
+      scale(1.13)
+      rotate(3deg);
+  }
+}
+
+
+/* ==============================
+   CAKE DECORATIONS
+================================ */
+
+.cake::before{
+
+  content:"♡";
+
+  position:absolute;
+
+  z-index:10;
+
+  left:10%;
+  bottom:70px;
+
+  font-size:45px;
+
+  color:white;
+
+  opacity:.8;
+}
+
+.cake::after{
+
+  content:"✦";
+
+  position:absolute;
+
+  z-index:10;
+
+  right:10%;
+  bottom:70px;
+
+  font-size:38px;
+
+  color:white;
+
+  opacity:.8;
+}
+
+
+/* ==============================
+   TEXT
+================================ */
+
+.hint{
+
+  color:#806286;
+
+  font-size:16px;
+
+  margin:15px 0 18px;
+}
+
+#wishBtn{
+  border:none;
+  cursor:pointer;
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+  .cake-card{
+    padding:30px 5px 40px;
+  }
+
+  .cake{
+
+    width:100%;
+
+    height:340px;
+
+    transform:scale(.9);
+
+    transform-origin:
+      center top;
+
+    margin-bottom:-20px;
+  }
+
+  .cake-photo{
+
+    width:61%;
+    height:160px;
+
+    top:57px;
+
+    border-width:6px;
+  }
+
+  .cake .icing{
+
+    width:65%;
+    height:172px;
+
+    left:17.5%;
+    top:51px;
+
+    border-width:7px;
+  }
+
+  .candles{
+    gap:15px;
+  }
+
+  .candle{
+    width:13px;
+    height:58px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- Floating decorations -->
+<div class="floating f1">🦋</div>
+<div class="floating f2">♡</div>
+<div class="floating f3">🌸</div>
+<div class="floating f4">✨</div>
+
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">♡ Home</a>
+  <a href="message.html">Message</a>
+  <a href="memories.html">Memories</a>
+  <a href="cake.html">Cake</a>
+  <a href="surprise.html">Surprise</a>
+</nav>
+
+
+<main class="cake-page">
+
+<div class="cake-card">
 
   <div class="cake-intro">
-    Make a wish, Chotu… then tap every candle 💜
+    Make a wish, Chotu… 💜
   </div>
 
-  <h1>A Little Cake For A Special Girl 🎂</h1>
+  <h1>
+    A Little Cake For A Special Girl 🎂
+  </h1>
+
+
+  <!-- =========================
+       CAKE
+  ========================== -->
 
   <div class="cake-wrap">
 
     <div class="cake">
 
+      <!-- Candles -->
       <div class="candles">
 
         <div class="candle">
@@ -340,23 +526,33 @@
 
       </div>
 
+
+      <!-- Cake top -->
+      <div class="layer top"></div>
+
+
+      <!-- ONLY PHOTO USED -->
       <img
         class="cake-photo"
         src="photo1.jpg"
         alt="Heni"
       >
 
+
+      <!-- Cream around photo -->
       <div class="icing"></div>
 
-      <div class="layer top"></div>
 
+      <!-- Cake body -->
       <div class="layer bottom"></div>
 
     </div>
 
+
     <p class="hint">
       Tap each flame to blow out the candles 🕯️✨
     </p>
+
 
     <button class="btn" id="wishBtn">
       Blow Them All Out ✨
@@ -364,7 +560,9 @@
 
   </div>
 
-  <br>
+
+  <br><br>
+
 
   <a class="btn" href="surprise.html">
     Make My Wish ✨ →
@@ -372,7 +570,15 @@
 
 </div>
 
-  </main>  <footer>
-    Made with ♡ specially for Chotu 😎
-  </footer>  <script src="script.js"></script></body>
+</main>
+
+
+<footer>
+  Made with ♡ specially for Chotu 😎
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
 </html>
