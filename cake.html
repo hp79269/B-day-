@@ -1,12 +1,378 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A Little Cake For A Special Girl 🎂</title><link rel="stylesheet" href="style.css"></head><body>
-<div class="floating f1">🦋</div><div class="floating f2">♡</div><div class="floating f3">🌸</div><div class="floating f4">✨</div>
-<nav><a href="index.html">♡ Home</a><a href="message.html">Message</a><a href="memories.html">Memories</a><a href="cake.html">Cake</a><a href="surprise.html">Surprise</a></nav><main class="hero"><div class="container"><div class="card"><div class="script" style="font-size:24px">Make a wish, Chotu… then tap every candle!</div><h1>A Little Cake For A Special Girl 🎂</h1><div class="cake-wrap">
-        <div class="cake">
-          <div class="candles"><div class="candle"><span class="flame"></span></div><div class="candle"><span class="flame"></span></div><div class="candle"><span class="flame"></span></div><div class="candle"><span class="flame"></span></div><div class="candle"><span class="flame"></span></div></div>
-          <img class="cake-photo" src="photo1.jpg" alt="Heni">
-          <div class="icing"></div><div class="layer top"></div><div class="layer bottom"></div>
-        </div><p class="hint">Tap each flame to blow out the candles 🕯️</p>
-        <button class="btn" id="wishBtn">Blow Them All Out ✨</button>
-        </div><a class="btn" href="surprise.html">Make My Wish ✨ →</a></div></div></main>
-<footer>Made with ♡ specially for Chotu 😎</footer><script src="script.js"></script></body></html>
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">  <title>A Little Cake For A Special Girl 🎂</title>  <link rel="stylesheet" href="style.css">  <style>
+    /* ===== BEAUTIFUL CAKE PAGE ===== */
+
+    .cake-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 15px;
+    }
+
+    .cake-card {
+      width: min(850px, 96%);
+      text-align: center;
+      padding: 38px 20px 45px;
+      border-radius: 35px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 60px rgba(150, 100, 170, 0.18);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .cake-card h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      margin: 12px 0 5px;
+    }
+
+    .cake-intro {
+      font-family: cursive;
+      font-size: clamp(19px, 3vw, 25px);
+      color: #8b5c91;
+      margin-bottom: 15px;
+    }
+
+    .cake-wrap {
+      margin-top: 15px;
+    }
+
+    /* BIGGER CAKE */
+    .cake {
+      position: relative;
+      width: min(470px, 90vw);
+      height: 360px;
+      margin: 55px auto 20px;
+      filter: drop-shadow(0 20px 22px rgba(120,70,130,.18));
+    }
+
+    /* PHOTO FRAME */
+    .cake-photo {
+      position: absolute;
+      z-index: 8;
+
+      width: 145px;
+      height: 145px;
+
+      left: 50%;
+      top: 35px;
+      transform: translateX(-50%);
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 8px solid #fff;
+      outline: 5px solid #d9b5e4;
+
+      box-shadow:
+        0 8px 25px rgba(120,70,130,.25),
+        0 0 0 12px rgba(255,255,255,.45);
+
+      background: #f5e8f7;
+    }
+
+    /* PHOTO HEART DECORATION */
+    .cake-photo::after {
+      content: "♡";
+    }
+
+    /* CAKE BASE */
+    .layer {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 22px 22px 15px 15px;
+    }
+
+    .layer.top {
+      width: 365px;
+      height: 95px;
+      bottom: 145px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #f9d8ed,
+          #eeb9dc
+        );
+
+      box-shadow:
+        inset 0 -12px 0 rgba(190,120,175,.12),
+        0 12px 20px rgba(130,70,130,.15);
+    }
+
+    .layer.bottom {
+      width: 430px;
+      height: 120px;
+      bottom: 30px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #e8b4d9,
+          #d997ca
+        );
+
+      box-shadow:
+        inset 0 -15px 0 rgba(150,80,140,.12),
+        0 15px 25px rgba(130,70,130,.18);
+    }
+
+    /* ICING */
+    .icing {
+      position: absolute;
+      z-index: 5;
+
+      left: 50%;
+      transform: translateX(-50%);
+
+      bottom: 130px;
+
+      width: 380px;
+      height: 42px;
+
+      background: #fff7fc;
+
+      border-radius: 25px 25px 35px 35px;
+
+      box-shadow:
+        0 5px 8px rgba(130,70,130,.1);
+    }
+
+    .icing::before,
+    .icing::after {
+      content: "♡  ✦  ♡  ✦  ♡";
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #d49bcf;
+      font-size: 18px;
+      top: 9px;
+      letter-spacing: 12px;
+    }
+
+    /* CANDLES */
+    .candles {
+      position: absolute;
+      z-index: 10;
+
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .candle {
+      position: relative;
+
+      width: 18px;
+      height: 78px;
+
+      border-radius: 8px;
+
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #fff,
+          #fff 7px,
+          #d7a9df 7px,
+          #d7a9df 14px
+        );
+
+      box-shadow:
+        0 5px 10px rgba(100,50,110,.15);
+    }
+
+    /* FLAMES */
+    .flame {
+      position: absolute;
+
+      width: 22px;
+      height: 32px;
+
+      left: 50%;
+      top: -30px;
+
+      transform: translateX(-50%);
+
+      background: radial-gradient(
+        ellipse at center,
+        #fff6a8 15%,
+        #ffd166 45%,
+        #ff9f68 75%
+      );
+
+      border-radius: 50% 50% 50% 50%;
+
+      animation: flicker .8s infinite alternate;
+
+      box-shadow:
+        0 0 12px #ffd166,
+        0 0 25px rgba(255,190,80,.65);
+    }
+
+    @keyframes flicker {
+      from {
+        transform: translateX(-50%) scale(1) rotate(-3deg);
+      }
+
+      to {
+        transform: translateX(-50%) scale(1.12) rotate(3deg);
+      }
+    }
+
+    /* CAKE DECORATIONS */
+    .cake::before {
+      content: "♡";
+      position: absolute;
+      z-index: 12;
+
+      left: 35px;
+      bottom: 75px;
+
+      color: #fff;
+      font-size: 45px;
+      opacity: .8;
+    }
+
+    .cake::after {
+      content: "✦";
+      position: absolute;
+      z-index: 12;
+
+      right: 35px;
+      bottom: 75px;
+
+      color: #fff;
+      font-size: 38px;
+      opacity: .8;
+    }
+
+    .hint {
+      color: #85638b;
+      font-size: 16px;
+      margin: 5px 0 18px;
+    }
+
+    #wishBtn {
+      border: none;
+      cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+
+      .cake-card {
+        padding: 30px 10px 35px;
+      }
+
+      .cake {
+        width: 100%;
+        height: 315px;
+        transform: scale(.82);
+        transform-origin: top center;
+        margin-bottom: -35px;
+      }
+
+      .cake-photo {
+        width: 125px;
+        height: 125px;
+      }
+
+      .candles {
+        gap: 16px;
+      }
+
+      .cake-card h1 {
+        line-height: 1.15;
+      }
+    }
+  </style></head><body>  <div class="floating f1">🦋</div>
+  <div class="floating f2">♡</div>
+  <div class="floating f3">🌸</div>
+  <div class="floating f4">✨</div>  <nav>
+    <a href="index.html">♡ Home</a>
+    <a href="message.html">Message</a>
+    <a href="memories.html">Memories</a>
+    <a href="cake.html">Cake</a>
+    <a href="surprise.html">Surprise</a>
+  </nav>  <main class="cake-page"><div class="cake-card">
+
+  <div class="cake-intro">
+    Make a wish, Chotu… then tap every candle 💜
+  </div>
+
+  <h1>A Little Cake For A Special Girl 🎂</h1>
+
+  <div class="cake-wrap">
+
+    <div class="cake">
+
+      <div class="candles">
+
+        <div class="candle">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle">
+          <span class="flame"></span>
+        </div>
+
+        <div class="candle">
+          <span class="flame"></span>
+        </div>
+
+      </div>
+
+      <img
+        class="cake-photo"
+        src="photo1.jpg"
+        alt="Heni"
+      >
+
+      <div class="icing"></div>
+
+      <div class="layer top"></div>
+
+      <div class="layer bottom"></div>
+
+    </div>
+
+    <p class="hint">
+      Tap each flame to blow out the candles 🕯️✨
+    </p>
+
+    <button class="btn" id="wishBtn">
+      Blow Them All Out ✨
+    </button>
+
+  </div>
+
+  <br>
+
+  <a class="btn" href="surprise.html">
+    Make My Wish ✨ →
+  </a>
+
+</div>
+
+  </main>  <footer>
+    Made with ♡ specially for Chotu 😎
+  </footer>  <script src="script.js"></script></body>
+</html>
