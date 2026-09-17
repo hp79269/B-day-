@@ -10,16 +10,16 @@
 
 <style>
 
-/* ==============================
+/* =========================
    CAKE PAGE
-================================ */
+========================= */
 
 .cake-page{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:50px 12px;
+  padding:45px 10px;
 }
 
 .cake-card{
@@ -31,224 +31,213 @@
   background:rgba(255,255,255,.72);
   backdrop-filter:blur(15px);
 
-  box-shadow:0 20px 60px rgba(130,80,150,.18);
+  box-shadow:0 20px 60px rgba(120,80,140,.18);
 }
 
 .cake-intro{
   font-family:cursive;
   font-size:clamp(20px,4vw,27px);
-  color:#8c6095;
+  color:#8b6095;
 }
 
 .cake-card h1{
   font-size:clamp(30px,6vw,48px);
-  margin:8px 0 5px;
+  margin:8px 0 10px;
 }
 
 
-/* ==============================
-   BIG REALISTIC CSS CAKE
-================================ */
+/* =========================
+   CAKE CONTAINER
+========================= */
 
 .cake-wrap{
-  margin-top:30px;
+  margin-top:25px;
 }
 
 .cake{
   position:relative;
 
-  /* LARGE CAKE */
-  width:min(650px,94vw);
-  height:390px;
+  width:min(650px,95vw);
+  height:410px;
 
-  margin:55px auto 10px;
+  margin:50px auto 5px;
 
   filter:drop-shadow(
-    0 22px 25px rgba(80,45,40,.22)
+    0 22px 25px rgba(70,40,30,.22)
   );
 }
 
 
-/* ==============================
-   CAKE SIDE
-================================ */
+/* =========================
+   CAKE BODY
+========================= */
 
-.cake .layer.bottom{
+.layer.bottom{
 
   position:absolute;
 
-  width:88%;
-  height:170px;
+  z-index:1;
 
-  left:6%;
-  bottom:25px;
+  left:5%;
+  bottom:20px;
+
+  width:90%;
+  height:180px;
 
   border-radius:
-    0 0 48% 48% /
-    0 0 30% 30%;
+    0 0 45% 45% /
+    0 0 25% 25%;
 
   background:
     linear-gradient(
       to bottom,
-      #fffdf6 0%,
-      #f9eee0 35%,
-      #ead7bf 75%,
-      #d9c0a1 100%
+      #fffdf7 0%,
+      #f8ecdc 35%,
+      #ead8bd 75%,
+      #d8bea0 100%
     );
 
   box-shadow:
-    inset 0 -18px 25px rgba(130,90,50,.12),
-    0 12px 18px rgba(80,50,30,.15);
+    inset 0 -20px 25px rgba(120,80,40,.12),
+    0 12px 20px rgba(70,40,25,.15);
 }
 
 
-/* Cake side cream decoration */
+/* =========================
+   CAKE TOP OVAL
+========================= */
 
-.cake .layer.bottom::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  top:15px;
-
-  width:100%;
-  height:35px;
-
-  background:
-    radial-gradient(
-      ellipse,
-      #fff 0%,
-      #fff 55%,
-      transparent 57%
-    );
-
-  background-size:45px 25px;
-}
-
-
-/* ==============================
-   CAKE TOP
-================================ */
-
-.cake .layer.top{
+.layer.top{
 
   position:absolute;
 
-  z-index:3;
+  z-index:4;
 
-  width:88%;
-  height:225px;
+  left:5%;
+  top:55px;
 
-  left:6%;
-  top:35px;
+  width:90%;
+  height:235px;
 
   border-radius:50%;
 
   background:
-    linear-gradient(
-      145deg,
-      #fffef9,
-      #f7e9d7
+    radial-gradient(
+      ellipse at 45% 35%,
+      #fffefa 0%,
+      #fff9ef 45%,
+      #f4e3cd 100%
     );
 
   box-shadow:
-
-    inset 0 8px 15px rgba(255,255,255,.9),
-
-    inset 0 -12px 18px rgba(170,120,80,.12),
-
-    0 8px 12px rgba(70,40,25,.16);
+    inset 0 8px 15px rgba(255,255,255,.95),
+    inset 0 -12px 20px rgba(160,110,70,.13),
+    0 8px 12px rgba(70,40,25,.15);
 }
 
 
-/* ==============================
-   PHOTO INSIDE CAKE
-================================ */
+/* =========================
+   PHOTO — PERFECT OVAL FIT
+========================= */
 
 .cake-photo{
 
   position:absolute;
 
-  z-index:6;
+  z-index:7;
 
-  width:62%;
+  /*
+     PHOTO SIZE MATCHES
+     THE CAKE TOP
+  */
+
+  left:20%;
+  top:72px;
+
+  width:60%;
   height:185px;
-
-  left:19%;
-  top:55px;
 
   object-fit:cover;
 
   /*
-     Makes photo look like it is
-     printed on the cake surface
+     Same oval perspective
+     as the cake surface
   */
 
   border-radius:50%;
 
-  border:8px solid #fff;
+  border:8px solid #fffdf8;
 
   box-shadow:
-    0 2px 5px rgba(70,40,30,.15),
-    inset 0 0 10px rgba(80,50,30,.12);
+    0 2px 5px rgba(70,40,30,.20),
+    inset 0 0 12px rgba(70,40,30,.10);
 
-  background:#f5e9dc;
+  /*
+     Makes the image sit naturally
+     inside the cake top
+  */
+
+  transform:
+    perspective(900px)
+    rotateX(7deg);
+
+  transform-origin:center center;
 }
 
 
-/* ==============================
-   CREAM RING AROUND PHOTO
-================================ */
+/* =========================
+   CREAM RING
+   EXACTLY AROUND PHOTO
+========================= */
 
-.cake .icing{
+.icing{
 
   position:absolute;
 
-  z-index:7;
-
-  width:66%;
-  height:197px;
-
-  left:17%;
-  top:49px;
-
-  border-radius:50%;
-
-  border:10px dotted #fff;
+  z-index:8;
 
   pointer-events:none;
 
+  left:19%;
+  top:69px;
+
+  width:62%;
+  height:191px;
+
+  border-radius:50%;
+
+  border:9px dotted #ffffff;
+
   filter:
     drop-shadow(
-      0 2px 3px rgba(80,50,30,.12)
+      0 2px 3px rgba(80,50,30,.15)
     );
+
+  transform:
+    perspective(900px)
+    rotateX(7deg);
 }
 
 
-/* ==============================
-   EXTRA CAKE CREAM DOTS
-================================ */
+/* Extra subtle cream line */
 
-.cake .icing::before{
+.icing::after{
 
   content:"";
 
   position:absolute;
 
-  width:100%;
-  height:100%;
+  inset:3px;
 
   border-radius:50%;
 
-  border:3px solid rgba(239,216,190,.7);
+  border:2px solid rgba(232,207,181,.7);
 }
 
 
-/* ==============================
+/* =========================
    CANDLES
-================================ */
+========================= */
 
 .candles{
 
@@ -256,7 +245,7 @@
 
   z-index:12;
 
-  top:-5px;
+  top:5px;
   left:50%;
 
   transform:translateX(-50%);
@@ -271,54 +260,53 @@
   position:relative;
 
   width:17px;
-  height:70px;
+  height:72px;
 
   border-radius:8px;
 
   background:
     repeating-linear-gradient(
       45deg,
-      #fff,
+      #fff 0px,
       #fff 7px,
-      #d9a6df 7px,
-      #d9a6df 14px
+      #d7a5df 7px,
+      #d7a5df 14px
     );
 
   box-shadow:
-    0 4px 8px rgba(60,40,40,.2);
+    0 4px 8px rgba(60,40,40,.20);
 }
 
 
-/* ==============================
-   FLAME
-================================ */
+/* =========================
+   FLAMES
+========================= */
 
 .flame{
 
   position:absolute;
 
-  width:23px;
-  height:31px;
-
   left:50%;
-  top:-29px;
+  top:-30px;
+
+  width:22px;
+  height:30px;
 
   transform:translateX(-50%);
 
-  border-radius:
-    50% 50% 50% 50%;
+  border-radius:50% 50% 50% 50%;
 
   background:
     radial-gradient(
       ellipse at center,
       #fffbd0 10%,
       #ffd166 45%,
-      #ff9d68 75%
+      #ff9c68 75%
     );
 
   box-shadow:
     0 0 10px #ffd166,
-    0 0 25px rgba(255,180,60,.7);
+    0 0 24px rgba(255,180,60,.7);
 
   animation:flicker .8s infinite alternate;
 }
@@ -335,56 +323,39 @@
   to{
     transform:
       translateX(-50%)
-      scale(1.13)
+      scale(1.12)
       rotate(3deg);
   }
 }
 
 
-/* ==============================
-   CAKE DECORATIONS
-================================ */
+/* =========================
+   CAKE SIDE DECORATION
+========================= */
 
-.cake::before{
+.layer.bottom::after{
 
-  content:"♡";
-
-  position:absolute;
-
-  z-index:10;
-
-  left:10%;
-  bottom:70px;
-
-  font-size:45px;
-
-  color:white;
-
-  opacity:.8;
-}
-
-.cake::after{
-
-  content:"✦";
+  content:"♡   ✦   ♡   ✦   ♡";
 
   position:absolute;
 
-  z-index:10;
+  left:0;
+  right:0;
+  bottom:45px;
 
-  right:10%;
-  bottom:70px;
+  text-align:center;
 
-  font-size:38px;
+  color:rgba(255,255,255,.9);
 
-  color:white;
+  font-size:25px;
 
-  opacity:.8;
+  letter-spacing:8px;
 }
 
 
-/* ==============================
-   TEXT
-================================ */
+/* =========================
+   HINT
+========================= */
 
 .hint{
 
@@ -392,7 +363,7 @@
 
   font-size:16px;
 
-  margin:15px 0 18px;
+  margin:18px 0;
 }
 
 #wishBtn{
@@ -401,47 +372,56 @@
 }
 
 
-/* ==============================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media(max-width:600px){
 
   .cake-card{
-    padding:30px 5px 40px;
+    padding:30px 4px 40px;
   }
 
   .cake{
-
     width:100%;
-
     height:340px;
 
-    transform:scale(.9);
+    margin-top:35px;
 
-    transform-origin:
-      center top;
+    transform:scale(.92);
+    transform-origin:top center;
 
-    margin-bottom:-20px;
+    margin-bottom:-25px;
   }
+
+  /*
+     PHOTO REMAINS
+     PROPERLY ALIGNED
+  */
 
   .cake-photo{
 
-    width:61%;
-    height:160px;
+    left:20%;
 
-    top:57px;
+    top:69px;
+
+    width:60%;
+
+    height:154px;
 
     border-width:6px;
+
   }
 
-  .cake .icing{
+  .icing{
 
-    width:65%;
-    height:172px;
+    left:19%;
 
-    left:17.5%;
-    top:51px;
+    top:66px;
+
+    width:62%;
+
+    height:160px;
 
     border-width:7px;
   }
@@ -452,7 +432,21 @@
 
   .candle{
     width:13px;
-    height:58px;
+    height:57px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+  .cake{
+    transform:scale(.82);
+    margin-bottom:-60px;
   }
 
 }
@@ -463,14 +457,12 @@
 
 <body>
 
-<!-- Floating decorations -->
 <div class="floating f1">🦋</div>
 <div class="floating f2">♡</div>
 <div class="floating f3">🌸</div>
 <div class="floating f4">✨</div>
 
 
-<!-- Navigation -->
 <nav>
   <a href="index.html">♡ Home</a>
   <a href="message.html">Message</a>
@@ -493,15 +485,32 @@
   </h1>
 
 
-  <!-- =========================
-       CAKE
-  ========================== -->
-
   <div class="cake-wrap">
 
     <div class="cake">
 
-      <!-- Candles -->
+
+      <!-- CAKE BODY -->
+      <div class="layer bottom"></div>
+
+
+      <!-- CAKE TOP -->
+      <div class="layer top"></div>
+
+
+      <!-- PHOTO INSIDE CAKE -->
+      <img
+        class="cake-photo"
+        src="photo1.jpg"
+        alt="Heni"
+      >
+
+
+      <!-- CREAM AROUND PHOTO -->
+      <div class="icing"></div>
+
+
+      <!-- CANDLES -->
       <div class="candles">
 
         <div class="candle">
@@ -526,26 +535,6 @@
 
       </div>
 
-
-      <!-- Cake top -->
-      <div class="layer top"></div>
-
-
-      <!-- ONLY PHOTO USED -->
-      <img
-        class="cake-photo"
-        src="photo1.jpg"
-        alt="Heni"
-      >
-
-
-      <!-- Cream around photo -->
-      <div class="icing"></div>
-
-
-      <!-- Cake body -->
-      <div class="layer bottom"></div>
-
     </div>
 
 
@@ -562,7 +551,6 @@
 
 
   <br><br>
-
 
   <a class="btn" href="surprise.html">
     Make My Wish ✨ →
