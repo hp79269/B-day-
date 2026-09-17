@@ -437,7 +437,61 @@
 
 }
 
+/* =================================
+   FINAL PHOTO FIX
+   ================================= */
 
+.cake-photo-visible {
+  position: absolute !important;
+
+  z-index: 999 !important;
+
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  left: 20% !important;
+  top: 72px !important;
+
+  width: 60% !important;
+  height: 185px !important;
+
+  object-fit: cover !important;
+
+  border-radius: 50% !important;
+
+  border: 8px solid #ffffff !important;
+
+  background: #f5e9dc !important;
+
+  box-sizing: border-box !important;
+
+  box-shadow:
+    0 3px 8px rgba(50,30,20,.25) !important;
+
+  transform:
+    perspective(900px)
+    rotateX(7deg) !important;
+
+  transform-origin: center center !important;
+}
+
+
+/* Keep photo visible on mobile */
+
+@media(max-width:600px){
+
+  .cake-photo-visible {
+    left: 20% !important;
+    top: 69px !important;
+
+    width: 60% !important;
+    height: 154px !important;
+
+    border-width: 6px !important;
+  }
+
+}
 /* =========================
    VERY SMALL PHONES
 ========================= */
@@ -499,11 +553,11 @@
 
 
       <!-- PHOTO INSIDE CAKE -->
-      <img
-        class="cake-photo"
-        src="photo2.jpg"
-        alt="Heni"
-      >
+       <img
+  src="photo1.jpg"
+  alt="Heni"
+  class="cake-photo-visible"
+>
 
 
       <!-- CREAM AROUND PHOTO -->
